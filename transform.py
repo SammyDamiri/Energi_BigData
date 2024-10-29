@@ -2,6 +2,15 @@ import pandas as pd
 
 
 def exchange_germany(file):
+    """
+    Calculates and displays the total electricity exchange with Germany for Denmark.
+
+    Parameters:
+    - file (str): The path to the CSV file containing electricity data.
+
+    Outputs:
+    - Prints the total exchange with Germany for both DK1 and DK2 regions, as well as the combined total.
+    """
 
     df = pd.read_csv(file)
 
@@ -14,7 +23,17 @@ def exchange_germany(file):
 
 
 def total_consumption(file):
+    """
+    Calculates and displays electricity consumption and production data for Denmark..
 
+    Parameters:
+    - file (str): The path to the CSV file containing electricity data.
+
+    Outputs:
+    - Prints the total electricity consumption in Denmark.
+    - Displays the percentage of total consumption from wind and solar production.
+    - Shows the net percentage of total consumption exported.
+    """
     df = pd.read_csv(file)
 
     plant_production = df[['ProductionLt100MW', 'ProductionGe100MW']].sum().sum()
