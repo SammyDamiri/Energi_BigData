@@ -1,6 +1,6 @@
 import requests
 
-def get_data(year, limit=100):
+def get_data(year):
     """
     Retrieves real-time electricity production data for a specified year from the Energidataservice API.
 
@@ -18,9 +18,9 @@ def get_data(year, limit=100):
         start=f"{year}-01-01T00:00",
         end=f"{year}-12-31T00:00",
         sort="Minutes5UTC DESC",
-        limit=limit
+        limit=0
     )
-    print(f"Fetching Energi data from {year}...")
+    print(f"\nFetching Energi data for {year}...")
     return requests.get(
         url=url,
         params=params
