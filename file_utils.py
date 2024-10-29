@@ -13,7 +13,7 @@ def save_as_json(response, filename):
     if response.status_code == 200:
         filename += ".json"
         data = response.json()
-
+        print("Saving response as json-file...")
         with open(filename, '+w') as file:
             json.dump(data, file, indent=4)
         print(f"Data has been saved to {filename}")
@@ -35,7 +35,7 @@ def save_as_csv(response, filename):
 
         if 'records' in data:
             records = data['records']
-
+            print("Saving response as csv-file...")
             with open(filename, mode='+w', newline='') as file:
                 writer = csv.DictWriter(file, fieldnames=records[0].keys())
                 writer.writeheader()

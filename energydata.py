@@ -20,7 +20,7 @@ def get_data(year, limit=100):
         sort="Minutes5UTC DESC",
         limit=limit
     )
-
+    print(f"Fetching Energi data from {year}...")
     return requests.get(
         url=url,
         params=params
