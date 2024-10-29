@@ -1,5 +1,6 @@
 import requests
 
+
 def get_data(year):
     """
     Retrieves real-time electricity production data for a specified year from the Energidataservice API.
