@@ -22,7 +22,7 @@ def exchange_germany(file):
     print(f"Total Exchange with Germany: {total_exchange_germany_dk1 + total_exchange_germany_dk2} MW\n")
 
 
-def total_consumption(file):
+def total_consumption(file, userconsumption):
     """
     Calculates and displays electricity consumption and production data for Denmark..
 
@@ -42,6 +42,7 @@ def total_consumption(file):
     total_exchange = df[['ExchangeGermany', 'ExchangeNetherlands', 'ExchangeGreatBritain', 'ExchangeNorway', 'ExchangeSweden', 'ExchangeGreatBelt', 'BornholmSE4']].sum().sum()
 
     total_consumption = plant_production + wind_production + solar_production + total_exchange
+    user_consumption_pct = ((int(userconsumption)) / 1000) / total_consumption * 100
     wind_production_pct = wind_production / total_consumption * 100
     solar_production_pct = solar_production / total_consumption * 100
     net_export_pct = total_exchange / total_consumption * 100
@@ -51,3 +52,5 @@ def total_consumption(file):
     print(f"{wind_production_pct:.2f}% of total consumption came from wind production.")
     print(f"{solar_production_pct:.2f}% of total consumption came from solar production.")
     print(f"{net_export_pct:.2f} of total consumption was exported.")
+    print(f"\n{user_consumption_pct:.10f}% of total consumption was used by you!\n")
+
